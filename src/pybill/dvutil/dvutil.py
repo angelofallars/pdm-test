@@ -1,4 +1,5 @@
 """Utilities for working with Pydantic."""
+
 from typing import Final
 
 import pydantic

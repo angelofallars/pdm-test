@@ -31,6 +31,7 @@ reportUnusedImport = "none" # already done by Ruff
 [tool.ruff]
 line-length = 100
 src = ["src", "tests"]
+preview = true
 
 select = [
     "F",       # Pyflakes
@@ -117,6 +118,8 @@ select = [
 
 ignore = [
     "F841",    # already done by Pyright
+    "F821",    # already done by Pyright
+    "B018",    # already done by Pyright
 ]
 
 [tool.ruff.lint.pydocstyle]

@@ -1,12 +1,11 @@
-from typing import List, Protocol
+from typing import Protocol
 
 
 class Error(Protocol):
-    def error(self) -> str:
-        ...
+    def error(self) -> str: ...
 
 
-type e = List[int]
+type E = list[int]
 
 
 class _WrappedError:

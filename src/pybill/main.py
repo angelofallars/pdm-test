@@ -1,11 +1,11 @@
 import asyncio
 import os
-from typing import Callable, Final, ParamSpec, TypeVar
+from collections.abc import Callable
+from typing import Final, ParamSpec, TypeVar
 
 from result import Err, Ok, Result, as_result
 
 DEFAULT_PORT: Final = 3000
-DEFAULT_PORT = 24
 
 
 def network_op() -> Result[int, str]:
@@ -33,7 +33,6 @@ def hello(e: str) -> int:
         return 2
     else:
         return 24
-    ...
 
 
 P = ParamSpec("P")
@@ -54,7 +53,6 @@ match open("./hello", 511):
                 ...
             case _:
                 ...
-        ...
     case Ok(f):
         ...
 
@@ -70,8 +68,7 @@ def cast_params(_: Callable[P, R]):
 
 
 @cast_params(os.open)
-def wrapped():
-    ...
+def wrapped(): ...
 
 
 class Firebase:

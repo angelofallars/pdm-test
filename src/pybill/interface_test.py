@@ -15,8 +15,7 @@ class HasID(Protocol):
         ...
 
     @id.setter
-    def id(self, new_id: str) -> None:
-        ...
+    def id(self, new_id: str) -> None: ...
 
 
 @validate
