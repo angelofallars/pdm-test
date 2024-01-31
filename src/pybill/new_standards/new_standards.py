@@ -2,7 +2,7 @@
 
 import math
 import sys
-from typing import Literal
+from typing import Literal, TypeAlias
 
 from pydantic import BaseModel, Field, ValidationError
 from result import Err, Ok, Result
@@ -58,7 +58,7 @@ class Circle(BaseModel):
     radius: float = Field(gt=0)
 
 
-Shape = Square | Rectangle | Circle
+Shape: TypeAlias = Square | Rectangle | Circle
 
 
 def calculate_area(shape: Shape) -> float:

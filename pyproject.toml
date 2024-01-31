@@ -125,6 +125,8 @@ ignore = [
     "F841",    # already done by Pyright
     "F821",    # already done by Pyright
     "B018",    # already done by Pyright
+
+    "UP040",   # new 3.12 feature but most distros still on 3.11
 ]
 
 [tool.ruff.lint.pydocstyle]
