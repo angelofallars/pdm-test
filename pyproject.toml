@@ -1,0 +1,137 @@
+[project]
+name = "pybill"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Angelo Fallaria", email = "ba.fallaria@gmail.com"},
+]
+dependencies = [
+    "result>=0.16.0",
+    "pydantic>=2.6.0",
+    "pdoc>=14.4.0",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pyright]
+typeCheckingMode = "strict"
+deprecateTypingAliases = true
+reportShadowedImports = "error"
+reportUninitializedInstanceVariable = "error"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnusedCallResult = "warning"
+reportPropertyTypeMismatch = "error"
+reportUnusedImport = "none" # already done by Ruff
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+select = [
+    "F",       # Pyflakes
+    "E",       # pycodestyle
+    "W",       # pycodestyle
+    "UP",      # pyupgrade
+    "C90",     # McCabe complexity
+
+    "D",       # pydocstyle
+    "D400",    # First line ends in period
+
+    "N",       # pep8-naming
+
+    "ANN401",  # Disallow typing.Any
+    "PLC2801", # Unnecessary dunder call
+
+    "RET504",  # Unnecessary assign
+    "RET506",  # Unnecessary else
+    "RET507",
+    "RET508",
+
+    "PT",      # Pytest style
+
+    "S",       # Security
+
+    "FBT",     # Boolean trap
+
+    "B",       # Bugbear
+
+    "SIM101",  # duplicate-isinstance-call
+    "SIM102",  # collapsible-if
+    "SIM103",  # needless-bool
+    "SIM109",  # compare-with-tuple
+    "SIM110",  # reimplemented-builtin
+    "SIM112",  # uncapitalized-environment-variables
+    "SIM113",  # enumerate-for-loop
+    "SIM114",  # if-with-same-arms
+    "SIM115",  # open-file-with-context-handler
+    "SIM117",  # multiple-with-statements
+    "SIM118",  # in-dict-keys
+    "SIM201",  # negate-equal-op
+    "SIM202",  # negate-not-equal-op
+    "SIM208",  # double-negation
+    "SIM210",  # if-expr-with-true-false
+    "SIM211",  # if-expr-with-false-true
+    "SIM212",  # if-expr-with-twisted-arms
+    "SIM220",  # If exprs that always evaluate to true/false
+    "SIM221",
+    "SIM222",
+    "SIM223",
+    "SIM300",  # Yoda conditions
+    "SIM401",  # if-else-block-instead-of-dict-get
+    "SIM910",  # dict-get-with-none-default
+    "SIM911",  # zip-dict-keys-and-values
+
+    "TCH",     # move type-checking into type-checking block
+
+    "PTH",     # use pathlib instead of os module
+
+    "T10",     # Presence of `breakpoint()`
+
+    "PYI",     # Stub files
+
+    "PIE",     # Misc. lints
+
+    "TD001",   # invalid TODO tag
+    "TD004",   # missing TODO colon
+    "TD005",   # missing TODO description
+    "TD006",   # invalid TODO capitalization
+    "TD007",   # missing space after colon in TODO
+
+    "C4",      # comprehensions
+
+    "DTZ",     # Unsafe datetimes
+
+    "TID",     # tidy imports
+
+    "FURB",    # refurb
+
+    "PERF",    # performance linting
+
+    "RUF",     # Ruff-specific rules
+]
+
+ignore = [
+    "F841",    # already done by Pyright
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = ["pydantic.BaseModel"]
+runtime-evaluated-decorators = [
+    "pydantic.validate_call",
+    "dvutil.validate",
+    "attrs.define",
+    "pydantic.dataclasses.dataclass",
+]
+strict = true
+quote-annotations = false
+
+[tool.ruff.format]
+preview = true
