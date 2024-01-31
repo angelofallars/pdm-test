@@ -2,10 +2,10 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default"]
+groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:6b7c4557e78fed2c37b71f2efcfbdc9e186969e55e3700e7a18db5d15a482504"
+content_hash = "sha256:193a21f9b40c189949032fd11fc984c3131cff181f6125375eddc8f19c06252c"
 
 [[package]]
 name = "annotated-types"
@@ -158,3 +158,12 @@ files = [
     {file = "typing_extensions-4.9.0-py3-none-any.whl", hash = "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"},
     {file = "typing_extensions-4.9.0.tar.gz", hash = "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"},
 ]
+
+[[package]]
+name = "volcanic"
+version = "0.1.0"
+requires_python = ">=3.12"
+editable = true
+path = "../volcanic"
+summary = "Default template for PDM package"
+groups = ["dev"]

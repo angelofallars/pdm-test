@@ -1,9 +1,8 @@
 import sqlite3
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
-from typing import TYPE_CHECKING, Any, Generic, Protocol, TypeVar, override
+from typing import TYPE_CHECKING, Generic, Protocol, TypeVar, override
 
-from pydantic import BaseModel
 from pydantic.dataclasses import dataclass
 from result import Err, Ok, Result
 
@@ -33,10 +32,6 @@ class HasID(Protocol):
 
 
 T = TypeVar("T", bound=HasID)
-
-
-def my_any(a: Any):
-    return 5
 
 
 class CRUDRepository(ABC, Generic[T]):
@@ -146,7 +141,6 @@ def handle_get_item_by_id(repo: ItemRepository) -> Result[Item, str]:
 
 def my_function(j: "pathlib.Path"):
     print(j)
-    ...
 
 
 repo = SQLiteItemRepository(sqlite3.connect("Hello"))
